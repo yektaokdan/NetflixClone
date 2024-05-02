@@ -1,9 +1,3 @@
-//
-//  NetflixCloneTests.swift
-//  NetflixCloneTests
-//
-//  Created by trc vpn on 26.04.2024.
-//
 
 import XCTest
 @testable import NetflixClone

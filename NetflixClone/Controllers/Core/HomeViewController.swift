@@ -1,9 +1,3 @@
-//
-//  HomeViewController.swift
-//  NetflixClone
-//
-//  Created by trc vpn on 26.04.2024.
-//
 
 import UIKit
 
@@ -48,9 +42,8 @@ class HomeViewController: UIViewController {
         let logoImageView = UIImageView(image: logo)
         logoImageView.contentMode = .scaleAspectFit
         
-        // Logo görüntüsünün boyutunu ayarlayın.
-        let logoViewWidth: CGFloat = 80  // Genişliği ayarlayın.
-        let logoViewHeight: CGFloat = 30  // Yüksekliği ayarlayın.
+        let logoViewWidth: CGFloat = 80
+        let logoViewHeight: CGFloat = 30
         
         let logoView = UIView(frame: CGRect(x: 0, y: 0, width: logoViewWidth, height: logoViewHeight))
         logoImageView.frame = CGRect(x: -10, y: 0, width: logoViewWidth, height: logoViewHeight)
@@ -59,7 +52,7 @@ class HomeViewController: UIViewController {
         let leftBarButtonItem = UIBarButtonItem(customView: logoView)
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
-        // Sağdaki butonlar
+       
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)

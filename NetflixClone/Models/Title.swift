@@ -1,9 +1,3 @@
-//
-//  Movie.swift
-//  NetflixClone
-//
-//  Created by trc vpn on 30.04.2024.
-//
 
 import Foundation
 struct TrendingTitleResponse:Codable {
