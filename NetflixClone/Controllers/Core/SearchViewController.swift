@@ -9,6 +9,14 @@ class SearchViewController: UIViewController {
         return table
     }()
     
+    
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Search for a Movie or a Tv Show"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
@@ -17,7 +25,10 @@ class SearchViewController: UIViewController {
         view.addSubview(discoverTable)
         discoverTable.delegate = self
         discoverTable.dataSource = self
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.tintColor = .label
         fetchDiscoverMovies()
+        searchController.searchResultsUpdater = self
     }
     private func fetchDiscoverMovies() {
         APICaller.shared.getDiscoverMovies { [weak self] result in
@@ -62,4 +73,29 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+
+extension SearchViewController : UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultController = searchController.searchResultsController as? SearchResultsViewController else {
+            return
+        }
+        
+        APICaller.shared.search(with: query) { result in
+            DispatchQueue.main.async{
+                switch result{
+                case .success(let titles):
+                    resultController.titles = titles
+                    resultController.searchResultsCollectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
 }

@@ -135,7 +135,6 @@
 				5970BB882BDB9D4C00172C87 /* Controllers */,
 				5970BB582BDB98CF00172C87 /* AppDelegate.swift */,
 				5970BB5A2BDB98CF00172C87 /* SceneDelegate.swift */,
-				5970BB5C2BDB98CF00172C87 /* MainTabBarViewController.swift */,
 				5970BB612BDB98D000172C87 /* Assets.xcassets */,
 				5970BB632BDB98D000172C87 /* LaunchScreen.storyboard */,
 				5970BB662BDB98D000172C87 /* Info.plist */,
@@ -215,6 +214,7 @@
 		59C6B4382BE3D3A8008D6066 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5970BB5C2BDB98CF00172C87 /* MainTabBarViewController.swift */,
 				5970BB892BDB9D5800172C87 /* HomeViewController.swift */,
 				5970BB8B2BDB9D6700172C87 /* UpcomingViewController.swift */,
 				5970BB8D2BDB9DAC00172C87 /* SearchViewController.swift */,
